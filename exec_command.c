@@ -12,7 +12,7 @@ void exec_command(char *line, char *progname, char **envp)
 {
 	char *args[10];
 	char *token;
-	int arg_count = 0;
+	int arg_count = 0, allocated = 0;
 	pid_t id;
 
 	token = strtok(line, " ");
@@ -25,6 +25,7 @@ void exec_command(char *line, char *progname, char **envp)
 	if (check_path(args[0]))
 	{
 		args[0] = get_path(envp, args[0]);
+		allocated = 1;
 	}
 	if (args[0] && (command_exists(args[0])))
 	{
@@ -48,5 +49,9 @@ void exec_command(char *line, char *progname, char **envp)
 	else
 	{
 		wait(NULL);
+		if (allocated)
+		{
+			free(args[0]);
+		}
 	}
 }

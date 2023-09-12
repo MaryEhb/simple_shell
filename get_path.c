@@ -31,12 +31,16 @@ char *get_path(char **envp, char *command)
 			{
 				new_command = (char *) malloc(_strlen(token) + _strlen(command) + 2);
 				if (new_command == NULL)
+				{
+					free(path);
 					return (NULL);
+				}
 				_strcpy(new_command, token);
 				_strcat(new_command, "/");
 				_strcat(new_command, command);
 
 				closedir(dir);
+				free(path);
 				return (new_command);
 			}
 			entity = readdir(dir);
@@ -45,7 +49,7 @@ char *get_path(char **envp, char *command)
 		token = strtok(NULL, ":");
 		closedir(dir);
 	}
-
+	free(path);
 	free(new_command);
 	return (NULL);
 }
