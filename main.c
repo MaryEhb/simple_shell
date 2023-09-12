@@ -18,12 +18,12 @@ int main(int argc, char **argv, char **envp)
 
 	while (1)
 	{
-		_puts("#cisfun$ ");
+		//_puts("#cisfun$ ");
 		res = getline(&line, &len, stdin);
 
 		if (res == -1)
 		{
-			perror(argv[0]);
+			//perror(argv[0]);
 			break;
 		}
 
@@ -33,11 +33,11 @@ int main(int argc, char **argv, char **envp)
 		if (_strcmp(line, "exit") == 0)
 			break;
 
-		if ((_strcmp(line, "env")) == 0 || (_strcmp(line, "printenv")) == 0)
-		{
-			_printenv(envp);
-			continue;
-		}
+		//if ((_strcmp(line, "env")) == 0 || (_strcmp(line, "printenv")) == 0)
+		//{
+		//	_printenv(envp);
+		//	continue;
+		//}
 
 		exec_command(line, argv[0], envp);
 	}

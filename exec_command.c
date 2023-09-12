@@ -38,10 +38,10 @@ void exec_command(char *line, char *progname, char **envp)
 	}
 	if (id == 0)
 	{
-		if (execve(args[0], args, NULL) == -1)
+		if (execve(args[0], args, envp) == -1)
 		{
 			free(line);
-			perror(progname);
+			//perror(progname);
 			_exit(1);
 		}
 	}
