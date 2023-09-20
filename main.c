@@ -36,8 +36,6 @@ int main(int argc, char **argv, char **envp)
 			_printenv(envp);
 			continue;
 		}
-		if (line[0] == 'e' && line[1] == 'x' && line[2] == 'i' && line[3] == 't')
-			break;
 		exit_status = exec_command(line, argv[0], envp);
 	}
 	free(line);
