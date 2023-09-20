@@ -10,7 +10,7 @@
 
 void exec_command(char *line, char *progname, char **envp)
 {
-	char *args[10], *token = strtok(line, " ");
+	char *args[25], *token = strtok(line, " ");
 	int arg_count = 0, allocated = 0;
 	pid_t id;
 
