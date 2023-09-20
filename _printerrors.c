@@ -9,6 +9,7 @@
 void _errputs(char *s)
 {
 	int i = 0;
+
 	if (!s)
 		return;
 	while (s[i] != '\0')
