@@ -20,9 +20,9 @@ This is a basic Unix shell implemented in C, designed for simple command executi
 
   1. **Clone the Repository:**
 
-       ```bash
-       git clone https://github.com/yourusername/simple-unix-shell.git
-	```
+   ```bash
+   git clone https://github.com/yourusername/simple-unix-shell.git
+   ```
 
   2. **Compile the Code:**
 
@@ -33,9 +33,9 @@ This is a basic Unix shell implemented in C, designed for simple command executi
 
  3. **Run the Shell:**
 
-    ```bash
-     ./shell
-        ```
+   ```bash
+   ./shell
+   ```
 
 ## Contributors
   - [Mohamed Amr](https://github.com/MohamedAmrF)	  
@@ -49,7 +49,3 @@ This is a basic Unix shell implemented in C, designed for simple command executi
 
   - This project was created to demonstrate a minimalistic Unix shell in C.
   - No advanced features like semicolons, pipes, or redirections are supported, keeping the implementation simple and straightforward.
-
-  ```
-
-				
