@@ -21,14 +21,22 @@ int print_err(char *progname, char *arg)
  * @line: input from getline in main
  * @progname: argv[0] from main
  * @envp: env from main
- * Return: nothing
+ * Return: ay 7aga
  */
 
 int exec_command(char *line, char *progname, char **envp)
 {
-	char *args[1024], *token = strtok(line, " ");
-	int arg_count = 0, allocated = 0, status, exit_status = 0;
+	char *args[1024], *token;
+	int arg_count = 0, allocated = 0, status, exit_status = 0, i = 0;
 	pid_t id;
+
+	while (line[i] == ' ')
+		i++;
+	
+	if(!line[i])
+		return (0);
+
+	token = strtok(&line[i], " ");
 
 	while (token)
 	{
