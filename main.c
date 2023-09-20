@@ -18,6 +18,7 @@ int main(int argc, char **argv, char **envp)
 
 	while (1)
 	{
+		_puts("($) ");
 		res = getline(&line, &len, stdin);
 
 		if (res == -1)
