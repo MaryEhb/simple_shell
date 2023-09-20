@@ -1,6 +1,22 @@
 #include "main.h"
 
 /**
+ * print_err - print err
+ * @progname: prog name
+ * @arg: args[0]
+ * Return: 127
+ */
+
+int print_err(char *progname, char *arg)
+{
+	_errputs(progname);
+	_errputs(": 1: ");
+	_errputs(arg);
+	_errputs(": not found\n");
+	return (127);
+}
+
+/**
  * exec_command - check and execute the command
  * @line: input from getline in main
  * @progname: argv[0] from main
@@ -29,11 +45,7 @@ int exec_command(char *line, char *progname, char **envp)
 		id = fork();
 	else
 	{
-		_errputs(progname);
-		_errputs(": 1: ");
-		_errputs(args[0]);
-		_errputs(": not found\n");
-		return (127);
+		return (print_err(progname, args[0]));
 	}
 	if (id == 0)
 	{
@@ -42,23 +54,11 @@ int exec_command(char *line, char *progname, char **envp)
 			free(line);
 			_exit(1);
 		}
-	}
-	else
+	} else
 	{
 		wait(&status);
-
 		if (WIFEXITED(status))
-		{
 			exit_status = WEXITSTATUS(status);
-		} else
-		{
-			_errputs(progname);
-			_errputs(": ");
-			_errputs(args[0]);
-			_errputs(": terminated abnormally\n");
-			exit_status = 1;
-		}
-
 		if (allocated)
 			free(args[0]);
 	}
