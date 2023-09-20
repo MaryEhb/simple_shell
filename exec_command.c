@@ -10,12 +10,10 @@
 
 void exec_command(char *line, char *progname, char **envp)
 {
-	char *args[10];
-	char *token;
+	char *args[10], *token = strtok(line, " ");
 	int arg_count = 0, allocated = 0;
 	pid_t id;
 
-	token = strtok(line, " ");
 	while (token)
 	{
 		args[arg_count++] = token;
@@ -42,7 +40,6 @@ void exec_command(char *line, char *progname, char **envp)
 		if (execve(args[0], args, envp) == -1)
 		{
 			free(line);
-			//perror(progname);
 			_exit(1);
 		}
 	}
@@ -50,8 +47,6 @@ void exec_command(char *line, char *progname, char **envp)
 	{
 		wait(NULL);
 		if (allocated)
-		{
 			free(args[0]);
-		}
 	}
 }

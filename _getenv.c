@@ -25,13 +25,9 @@ char *_getenv(char **env, char *env_variable)
 		value = strtok(NULL, "=");
 
 
-	
 		if (_strcmp(key, env_variable) == 0)
 		{
-			
-			//_puts(value);
-			//_putchar('\n');
-			cvalue = (char *) malloc(_strlen(value)+1);
+			cvalue = (char *) malloc(_strlen(value) + 1);
 			_strcpy(cvalue, value);
 
 			free(cpy);
@@ -39,7 +35,7 @@ char *_getenv(char **env, char *env_variable)
 		}
 
 		i++;
-		
+
 		free(cpy);
 	}
 

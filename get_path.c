@@ -10,9 +10,8 @@
 
 char *get_path(char **envp, char *command)
 {
-	char *new_command = NULL;
+	char *new_command = NULL, *token;
 	char *path = _getenv(envp, "PATH");
-	char *token;
 	DIR *dir;
 	struct dirent *entity;
 
@@ -45,7 +44,6 @@ char *get_path(char **envp, char *command)
 			}
 			entity = readdir(dir);
 		}
-
 		token = strtok(NULL, ":");
 		closedir(dir);
 	}
