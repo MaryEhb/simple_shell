@@ -26,9 +26,7 @@ void exec_command(char *line, char *progname, char **envp)
 		allocated = 1;
 	}
 	if (args[0] && (command_exists(args[0])))
-	{
 		id = fork();
-	}
 	else
 	{
 		_errputs(progname);
