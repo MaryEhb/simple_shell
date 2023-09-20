@@ -49,5 +49,5 @@ char *get_path(char **envp, char *command)
 	}
 	free(path);
 	free(new_command);
-	return (command);
+	return (NULL);
 }
