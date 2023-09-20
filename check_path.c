@@ -8,7 +8,9 @@
 
 int check_path(char *command)
 {
-	if (command[0] == '/' || (command[0] == '.' && command[1] == '/') || (command[0] == '.' && command[1] == '.' && command[2] == '/'))
+	if (command[0] == '/' || (command[0] == '.' && command[1] == '/'))
+		return (0);
+	else if (command[0] == '.' && command[1] == '.' && command[2] == '/')
 		return (0);
 	return (1);
 }
