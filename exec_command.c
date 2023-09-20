@@ -31,8 +31,9 @@ void exec_command(char *line, char *progname, char **envp)
 	}
 	else
 	{
-		_puts(progname);
-		_puts(": No such file or directory\n");
+		_errputs(progname);
+		_errputs(": No such file or directory\n");
+		exit(127);
 		return;
 	}
 	if (id == 0)

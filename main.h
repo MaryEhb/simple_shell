@@ -23,4 +23,7 @@ int command_exists(char *command);
 void _printenv(char **envp);
 void exec_command(char *line, char *progname, char **envp);
 
+void _errputs(char *s);
+int _errputchar(char c);
+
 #endif
