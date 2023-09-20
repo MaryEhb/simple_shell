@@ -11,7 +11,7 @@
 int exec_command(char *line, char *progname, char **envp)
 {
 	char *args[1024], *token = strtok(line, " ");
-	int arg_count = 0, allocated = 0;
+	int arg_count = 0, allocated = 0, status, exit_status = 0;
 	pid_t id;
 
 	while (token)
@@ -45,9 +45,22 @@ int exec_command(char *line, char *progname, char **envp)
 	}
 	else
 	{
-		wait(NULL);
+		wait(&status);
+
+		if (WIFEXITED(status))
+		{
+			exit_status = WEXITSTATUS(status);
+		} else
+		{
+			_errputs(progname);
+			_errputs(": ");
+			_errputs(args[0]);
+			_errputs(": terminated abnormally\n");
+			exit_status = 1;
+		}
+
 		if (allocated)
 			free(args[0]);
 	}
-	return (0);
+	return (exit_status);
 }
