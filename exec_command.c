@@ -32,12 +32,9 @@ int exec_command(char *line, char *progname, char **envp)
 
 	while (line[i] == ' ')
 		i++;
-	
-	if(!line[i])
+	if (!line[i])
 		return (0);
-
 	token = strtok(&line[i], " ");
-
 	while (token)
 	{
 		args[arg_count++] = token;
@@ -52,9 +49,7 @@ int exec_command(char *line, char *progname, char **envp)
 	if (args[0] && (command_exists(args[0])))
 		id = fork();
 	else
-	{
 		return (print_err(progname, args[0]));
-	}
 	if (id == 0)
 	{
 		if (execve(args[0], args, envp) == -1)
