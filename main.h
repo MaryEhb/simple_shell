@@ -21,7 +21,7 @@ char *_getenv(char **env, char *command);
 char *get_path(char **envp, char *command);
 int command_exists(char *command);
 void _printenv(char **envp);
-void exec_command(char *line, char *progname, char **envp);
+int exec_command(char *line, char *progname, char **envp);
 
 void _errputs(char *s);
 int _errputchar(char c);

@@ -8,7 +8,7 @@
  * Return: nothing
  */
 
-void exec_command(char *line, char *progname, char **envp)
+int exec_command(char *line, char *progname, char **envp)
 {
 	char *args[1024], *token = strtok(line, " ");
 	int arg_count = 0, allocated = 0;
@@ -33,8 +33,7 @@ void exec_command(char *line, char *progname, char **envp)
 		_errputs(": 1: ");
 		_errputs(args[0]);
 		_errputs(": not found\n");
-		exit(127);
-		return;
+		return (127);
 	}
 	if (id == 0)
 	{
@@ -50,4 +49,5 @@ void exec_command(char *line, char *progname, char **envp)
 		if (allocated)
 			free(args[0]);
 	}
+	return (0);
 }

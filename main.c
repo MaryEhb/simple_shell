@@ -13,7 +13,7 @@ int main(int argc, char **argv, char **envp)
 	char *line = NULL;
 	size_t len = 0;
 	ssize_t res = 0;
-	int is_interactive = isatty(STDIN_FILENO);
+	int exit_status = 0, is_interactive = isatty(STDIN_FILENO);
 
 	(void) argc;
 
@@ -38,8 +38,8 @@ int main(int argc, char **argv, char **envp)
 		}
 		if (line[0] == 'e' && line[1] == 'x' && line[2] == 'i' && line[3] == 't')
 			break;
-		exec_command(line, argv[0], envp);
+		exit_status = exec_command(line, argv[0], envp);
 	}
 	free(line);
-	return (0);
+	return (exit_status);
 }
