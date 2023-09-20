@@ -35,12 +35,14 @@ char ignore_space(char *line, int *i)
  * @line: input from getline in main
  * @progname: argv[0] from main
  * @envp: env from main
+ * @exit_status: exit
+ *
  * Return: ay 7aga
  */
-int exec_command(char *line, char *progname, char **envp)
+int exec_command(char *line, char *progname, char **envp, int exit_status)
 {
 	char *args[1024], *token;
-	int arg_count = 0, allocated = 0, status, exit_status = 0, i = 0;
+	int arg_count = 0, allocated = 0, status, i = 0;
 	pid_t id;
 
 	if (!ignore_space(line, &i))
@@ -61,7 +63,7 @@ int exec_command(char *line, char *progname, char **envp)
 	if (args[0] && (command_exists(args[0])))
 		id = fork();
 	else
-		return (print_err(progname, args[0], "not found"));
+		return (exit_status = (print_err(progname, args[0], "not found\n")));
 	if (id == 0)
 	{
 		if (execve(args[0], args, envp) == -1)

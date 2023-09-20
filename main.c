@@ -36,7 +36,7 @@ int main(int argc, char **argv, char **envp)
 			_printenv(envp);
 			continue;
 		}
-		exit_status = exec_command(line, argv[0], envp);
+		exit_status = exec_command(line, argv[0], envp, exit_status);
 	}
 	free(line);
 	return (exit_status);
