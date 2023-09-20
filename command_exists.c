@@ -8,7 +8,7 @@
 
 int command_exists(char *command)
 {
-	if (access(command, F_OK) == 0)
+	if (access(command, F_OK | X_OK) == 0)
 		return (1);
 	return (0);
 }
