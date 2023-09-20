@@ -13,12 +13,14 @@ int main(int argc, char **argv, char **envp)
 	char *line = NULL;
 	size_t len = 0;
 	ssize_t res = 0;
+	int is_interactive = isatty(STDIN_FILENO);
 
 	(void) argc;
 
 	while (1)
 	{
-		_puts("$ ");
+		if (is_interactive)
+			_puts("$ ");
 		res = getline(&line, &len, stdin);
 
 		if (res == -1)
