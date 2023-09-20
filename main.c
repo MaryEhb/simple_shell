@@ -28,7 +28,7 @@ int main(int argc, char **argv, char **envp)
 		if (line[res - 1] == '\n')
 			line[res - 1] = '\0';
 
-		if (_strcmp(line, "exit") == 0)
+		if (line[0] == 'e' && line[1] == 'x' && line[2] == 'i' && line[3] == 't')
 			break;
 		exec_command(line, argv[0], envp);
 	}
