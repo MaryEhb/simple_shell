@@ -52,7 +52,7 @@ int exec_command(char *line, char *progname, char **envp)
 		token = strtok(NULL, " ");
 	}
 	args[arg_count] = NULL;
-	func(progname, args, arg_count, line);
+	func(progname, args, arg_count, line, exit_status);
 	if (check_path(args[0]))
 	{
 		args[0] = get_path(envp, args[0]);
@@ -86,10 +86,11 @@ int exec_command(char *line, char *progname, char **envp)
  * @args: arguments
  * @arg_count: args count
  * @line: line
+ * @e: exit
  *
  * Return: Nothing
  */
-void func(char *progname, char **args, int arg_count, char *line)
+void func(char *progname, char **args, int arg_count, char *line, int e)
 {
 	int exit_arg = 0;
 
@@ -98,7 +99,7 @@ void func(char *progname, char **args, int arg_count, char *line)
 		if (arg_count == 1)
 		{
 			free(line);
-			_exit(0);
+			_exit(e);
 		}
 
 		exit_arg = _errtoi(args[1]);

@@ -28,6 +28,6 @@ void _errputs(char *s);
 int _errputchar(char c);
 int _errtoi(char *s);
 
-void func(char *progname, char **args, int arg_count, char *line);
+void func(char *progname, char **args, int arg_count, char *line, int exit_status);
 
 #endif
