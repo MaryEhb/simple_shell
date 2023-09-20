@@ -14,44 +14,42 @@ This is a basic Unix shell implemented in C, designed for simple command executi
 
 - **Built-in Commands:**
   - `exit`: Allows you to exit the shell.
-    - `env`: Displays the current environment.
+  - `env`: Displays the current environment.
 
 ## Getting Started
 
-    1. **Clone the Repository:**
+  1. **Clone the Repository:**
 
        ```bash
-          git clone https://github.com/yourusername/simple-unix-shell.git
-	     ```
+       git clone https://github.com/yourusername/simple-unix-shell.git
+	```
 
-	     2. **Compile the Code:**
+  2. **Compile the Code:**
 
-	        ```bash
-		   cd simple-unix-shell
-		      gcc shell.c -o shell
-		         ```
+   ```bash
+   cd simple-unix-shell
+   gcc shell.c -o shell
+   ```
 
-			 3. **Run the Shell:**
+ 3. **Run the Shell:**
 
-			    ```bash
-			       ./shell
-			          ```
+    ```bash
+     ./shell
+        ```
 
 ## Contributors
-
-				  - [Mohamed Amr](https://github.com/MohamedAmrF)
-				  
-				  - [Mariem Ehab](https://github.com/MaryEhb)
+  - [Mohamed Amr](https://github.com/MohamedAmrF)	  
+  - [Mariem Ehab](https://github.com/MaryEhb)
 
 ## License
 
-				  This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+  This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
-				  - This project was created to demonstrate a minimalistic Unix shell in C.
-				  - No advanced features like semicolons, pipes, or redirections are supported, keeping the implementation simple and straightforward.
+  - This project was created to demonstrate a minimalistic Unix shell in C.
+  - No advanced features like semicolons, pipes, or redirections are supported, keeping the implementation simple and straightforward.
 
-				  ```
+  ```
 
 				
